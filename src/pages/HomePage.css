@@ -1,12 +1,11 @@
 .home-scroll-container {
-          
   overflow-y: auto;
-  overflow-x: visible;
+  overflow-x: hidden;
   padding: 2rem;
-  width: 941.6px;
-  height: 541px;
+  width: 100%;
+  min-height: calc(100vh - 4rem);
   border: 1px solid #000;
- justify-content: center; /* Center horizontally */
+  justify-content: center; /* Center horizontally */
   align-items: center;     /* Center vertically */
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -15,10 +14,8 @@
   margin: 2rem auto;
   font-family: Arial, sans-serif;
   color: #333;
-
   max-width: 1200px;
-  margin: 0 auto;
- 
+  box-sizing: border-box;
 }
 
 .flex-row {
@@ -35,8 +32,10 @@
 .home-title {
   font-size: 2rem;
   font-weight: bold;
-  color: #007bff;
+  color: #f4eded;
   margin-bottom: 1rem;
+  box-shadow: rgb(31, 135, 220);
+  filter: brightness(0.7);
 }
 
 .home-subtext {
@@ -75,9 +74,9 @@ li {
   background-color: #218838;
 }
 
-.banner-container{
-  position: cover;
-  overflow: hidden;                     /* Important for clipping blur */
+.banner-container {
+  position: relative;
+  overflow: hidden;
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -85,11 +84,15 @@ li {
   text-align: center;
   color: white;
   border-radius: 10px;
-  padding: 6rem 2rem;
+  padding: 2rem;
+  isolation: isolate;
+
 }
+
 .banner-container::before {
   content: "";
-  position: center;
+  position: absolute;
+  filter: brightness();
   top: 0;
   left: 0;
   right: 0;
@@ -97,24 +100,9 @@ li {
   background-image: url('/Images/college-banner-.png');
   background-size: 1000px 400px;
   background-position: center;
-  filter: blur(2px);                    /* 👈 Slight blur */
-  transform: scale(1.1);               /* Prevent edges from showing due to blur */
-  z-index: 0;
-
-  background-repeat: no-repeat;
-  padding: 6rem 2rem;
-  text-align: center;
-  color: rgb(43, 39, 164);
-  margin-bottom: 2rem;
-  border-radius: 10px;
-  height: 40vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.banner-container * {
-  position: relative;
-  z-index: 1;
+  filter: blur(2px);
+  transform: scale(1.1);
+  z-index: -1;
 }
 
 .banner-container h1 {
@@ -125,7 +113,7 @@ li {
 }
 
 .banner-container p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
 }
 
@@ -161,3 +149,37 @@ li {
 .button-wrapper {
   text-align: center;
 }
+
+@media (max-width: 768px) {
+  .home-scroll-container {
+    padding: 1rem;
+  }
+
+  .banner-container h1 {
+    font-size: 2rem;
+  }
+
+  .banner-container p {
+    font-size: 1rem;
+  }
+
+  .flex-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .banner-container p {
+    font-size: 0.9rem;
+  }
+
+  .cta-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+

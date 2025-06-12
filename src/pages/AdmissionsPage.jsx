@@ -36,7 +36,7 @@ const Admissions = () => {
             <td>B.A. English Literature</td>
             <td>10+2 (or equivalent)</td>
             <td>Any Stream</td>
-            <td>40%</td>
+            <td>45%</td>
           </tr>
         </tbody>
       </table>
@@ -51,7 +51,7 @@ const Admissions = () => {
       </ol>
 
       <p>
-        For detailed information on postgraduate program admissions, specific program syllabi, and fee structures, please visit our <Link to="/courses">Courses page</Link> or <Link to="/contact">Contact us</Link> directly.
+        For detailed information on postgraduate program admissions, specific program syllabus, and fee structures, please visit our <Link to="/courses">Courses page</Link> or <Link to="/contact">Contact us</Link> directly.
       </p>
     </div>
   );
